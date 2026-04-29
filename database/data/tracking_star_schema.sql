@@ -11,6 +11,8 @@ CREATE TABLE dim_frame (
     frame_number    INTEGER         NOT NULL,
     source_video_id VARCHAR(255),
     fps             NUMERIC(6, 3),
+    -- add path to source video for traceability
+    video_path      VARCHAR(500),
     UNIQUE (frame_number, source_video_id)
 );
 
