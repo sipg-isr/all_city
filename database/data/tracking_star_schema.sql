@@ -17,11 +17,12 @@ CREATE TABLE dim_frame (
 );
 
 -- -------------------------------------------------------------
--- Dimension: dim_track
+-- Dimension: dim_tracklet
 -- One row per tracked object lifetime
 -- -------------------------------------------------------------
-CREATE TABLE dim_track (
-    track_id          SERIAL    PRIMARY KEY,
+CREATE TABLE dim_tracklet (
+    -- make 
+    tracklet_id          SERIAL    PRIMARY KEY,
     first_seen_frame  INTEGER,
     last_seen_frame   INTEGER
 );
@@ -56,7 +57,7 @@ CREATE TABLE dim_time (
 CREATE TABLE fact_detection (
     detection_id        BIGSERIAL       PRIMARY KEY,
     frame_id            INTEGER         NOT NULL REFERENCES dim_frame(frame_id),
-    track_id            INTEGER         NOT NULL REFERENCES dim_track(track_id),
+    tracklet_id            INTEGER         NOT NULL REFERENCES dim_tracklet(tracklet_id),
     class_id            INTEGER         NOT NULL REFERENCES dim_class(class_id),
     time_id             INTEGER         NOT NULL REFERENCES dim_time(time_id),
 
@@ -84,7 +85,7 @@ CREATE TABLE fact_detection (
 
 -- Fact table FK lookups
 CREATE INDEX idx_fact_frame   ON fact_detection (frame_id);
-CREATE INDEX idx_fact_track   ON fact_detection (track_id);
+CREATE INDEX idx_fact_tracklet   ON fact_detection (tracklet_id);
 CREATE INDEX idx_fact_class   ON fact_detection (class_id);
 CREATE INDEX idx_fact_time    ON fact_detection (time_id);
 
