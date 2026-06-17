@@ -1,0 +1,224 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12">
+  <rect width="1200" height="1000" fill="#ffffff"/>
+
+  <!-- Legend -->
+  <rect x="20" y="20" width="160" height="72" rx="6" fill="#f8f8f6" stroke="#c8c6be" stroke-width="1"/>
+  <text x="32" y="40" font-size="11" font-weight="600" fill="#3d3d3a">Legend</text>
+  <rect x="32" y="50" width="12" height="12" rx="2" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.5"/>
+  <text x="50" y="61" font-size="11" fill="#3d3d3a">Fact table</text>
+  <rect x="32" y="70" width="12" height="12" rx="2" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+  <text x="50" y="81" font-size="11" fill="#3d3d3a">Dimension table</text>
+
+  <!-- ============================================================ -->
+  <!-- dim_camera  (top-center) -->
+  <!-- ============================================================ -->
+  <g id="dim_camera">
+    <rect x="490" y="20" width="200" height="160" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+    <rect x="490" y="20" width="200" height="28" rx="8" fill="#0F6E56"/>
+    <rect x="490" y="36" width="200" height="12" fill="#0F6E56"/>
+    <text x="590" y="39" text-anchor="middle" font-weight="700" font-size="13" fill="#ffffff">dim_camera</text>
+    <text x="502" y="65"  fill="#26215C" font-weight="600">camera_id</text>   <text x="672" y="65"  text-anchor="end" fill="#5F5E5A" font-size="11">PK · serial</text>
+    <text x="502" y="83"  fill="#3d3d3a">camera_name</text>                   <text x="672" y="83"  text-anchor="end" fill="#5F5E5A" font-size="11">varchar</text>
+    <text x="502" y="101" fill="#3d3d3a">location</text>                      <text x="672" y="101" text-anchor="end" fill="#5F5E5A" font-size="11">varchar</text>
+    <text x="502" y="119" fill="#3d3d3a">fps</text>                           <text x="672" y="119" text-anchor="end" fill="#5F5E5A" font-size="11">numeric</text>
+    <text x="502" y="137" fill="#3d3d3a">resolution</text>                    <text x="672" y="137" text-anchor="end" fill="#5F5E5A" font-size="11">varchar</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- dim_time  (far right, middle-upper) -->
+  <!-- ============================================================ -->
+  <g id="dim_time">
+    <rect x="970" y="20" width="210" height="160" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+    <rect x="970" y="20" width="210" height="28" rx="8" fill="#0F6E56"/>
+    <rect x="970" y="36" width="210" height="12" fill="#0F6E56"/>
+    <text x="1075" y="39" text-anchor="middle" font-weight="700" font-size="13" fill="#ffffff">dim_time</text>
+    <text x="982" y="65"  fill="#26215C" font-weight="600">time_id</text>      <text x="1172" y="65"  text-anchor="end" fill="#5F5E5A" font-size="11">PK · serial</text>
+    <text x="982" y="83"  fill="#3d3d3a">timestamp_s</text>                    <text x="1172" y="83"  text-anchor="end" fill="#5F5E5A" font-size="11">numeric</text>
+    <text x="982" y="101" fill="#3d3d3a">hour</text>                           <text x="1172" y="101" text-anchor="end" fill="#5F5E5A" font-size="11">smallint</text>
+    <text x="982" y="119" fill="#3d3d3a">minute</text>                         <text x="1172" y="119" text-anchor="end" fill="#5F5E5A" font-size="11">smallint</text>
+    <text x="982" y="137" fill="#3d3d3a">second</text>                         <text x="1172" y="137" text-anchor="end" fill="#5F5E5A" font-size="11">smallint</text>
+    <text x="982" y="155" fill="#3d3d3a">millisecond</text>                    <text x="1172" y="155" text-anchor="end" fill="#5F5E5A" font-size="11">smallint</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- dim_class  (far left, middle) -->
+  <!-- ============================================================ -->
+  <g id="dim_class">
+    <rect x="20" y="220" width="200" height="142" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+    <rect x="20" y="220" width="200" height="28" rx="8" fill="#0F6E56"/>
+    <rect x="20" y="236" width="200" height="12" fill="#0F6E56"/>
+    <text x="120" y="239" text-anchor="middle" font-weight="700" font-size="13" fill="#ffffff">dim_class</text>
+    <text x="32" y="265"  fill="#26215C" font-weight="600">class_id</text>      <text x="212" y="265"  text-anchor="end" fill="#5F5E5A" font-size="11">PK · serial</text>
+    <text x="32" y="283"  fill="#3d3d3a">class_name</text>                      <text x="212" y="283"  text-anchor="end" fill="#5F5E5A" font-size="11">varchar</text>
+    <text x="32" y="301"  fill="#3d3d3a">class_category</text>                  <text x="212" y="301"  text-anchor="end" fill="#5F5E5A" font-size="11">varchar</text>
+    <text x="32" y="319"  fill="#3d3d3a">model_version</text>                   <text x="212" y="319"  text-anchor="end" fill="#5F5E5A" font-size="11">varchar</text>
+    <text x="32" y="349" fill="#5F5E5A" font-size="10" font-style="italic">Seeded: person, car, truck…</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- dim_track  (left-center) -->
+  <!-- ============================================================ -->
+  <g id="dim_track">
+    <rect x="20" y="430" width="220" height="178" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+    <rect x="20" y="430" width="220" height="28" rx="8" fill="#0F6E56"/>
+    <rect x="20" y="446" width="220" height="12" fill="#0F6E56"/>
+    <text x="130" y="449" text-anchor="middle" font-weight="700" font-size="13" fill="#ffffff">dim_track</text>
+    <text x="32" y="475"  fill="#26215C" font-weight="600">track_id</text>           <text x="232" y="475"  text-anchor="end" fill="#5F5E5A" font-size="11">PK · serial</text>
+    <text x="32" y="493"  fill="#185FA5" font-weight="500">camera_id</text>          <text x="232" y="493"  text-anchor="end" fill="#5F5E5A" font-size="11">FK · int</text>
+    <text x="32" y="511"  fill="#3d3d3a">first_seen_ts</text>                        <text x="232" y="511"  text-anchor="end" fill="#5F5E5A" font-size="11">numeric</text>
+    <text x="32" y="529"  fill="#3d3d3a">last_seen_ts</text>                         <text x="232" y="529"  text-anchor="end" fill="#5F5E5A" font-size="11">numeric</text>
+    <text x="32" y="547"  fill="#3d3d3a">tracklet_count</text>                       <text x="232" y="547"  text-anchor="end" fill="#5F5E5A" font-size="11">int</text>
+    <text x="32" y="565"  fill="#993C1D" font-weight="500">avg_speed_px_per_s</text> <text x="232" y="565"  text-anchor="end" fill="#5F5E5A" font-size="11">numeric</text>
+    <text x="32" y="596" fill="#5F5E5A" font-size="10" font-style="italic">One row per real-world object</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- dim_video  (top-right area) -->
+  <!-- ============================================================ -->
+  <g id="dim_video">
+    <rect x="750" y="20" width="200" height="178" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+    <rect x="750" y="20" width="200" height="28" rx="8" fill="#0F6E56"/>
+    <rect x="750" y="36" width="200" height="12" fill="#0F6E56"/>
+    <text x="850" y="39" text-anchor="middle" font-weight="700" font-size="13" fill="#ffffff">dim_video</text>
+    <text x="762" y="65"  fill="#26215C" font-weight="600">video_id</text>     <text x="942" y="65"  text-anchor="end" fill="#5F5E5A" font-size="11">PK · serial</text>
+    <text x="762" y="83"  fill="#185FA5" font-weight="500">camera_id</text>    <text x="942" y="83"  text-anchor="end" fill="#5F5E5A" font-size="11">FK · int</text>
+    <text x="762" y="101" fill="#3d3d3a">segment_number</text>                 <text x="942" y="101" text-anchor="end" fill="#5F5E5A" font-size="11">int</text>
+    <text x="762" y="119" fill="#3d3d3a">start_ts</text>                       <text x="942" y="119" text-anchor="end" fill="#5F5E5A" font-size="11">numeric</text>
+    <text x="762" y="137" fill="#3d3d3a">end_ts</text>                         <text x="942" y="137" text-anchor="end" fill="#5F5E5A" font-size="11">numeric</text>
+    <text x="762" y="155" fill="#3d3d3a">file_path</text>                      <text x="942" y="155" text-anchor="end" fill="#5F5E5A" font-size="11">varchar</text>
+    <text x="762" y="184" fill="#5F5E5A" font-size="10" font-style="italic">Unique (camera_id, segment_number)</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- dim_frame  (right-center) -->
+  <!-- ============================================================ -->
+  <g id="dim_frame">
+    <rect x="970" y="280" width="210" height="160" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.5"/>
+    <rect x="970" y="280" width="210" height="28" rx="8" fill="#0F6E56"/>
+    <rect x="970" y="296" width="210" height="12" fill="#0F6E56"/>
+    <text x="1075" y="299" text-anchor="middle" font-weight="700" font-size="13" fill="#ffffff">dim_frame</text>
+    <text x="982" y="325"  fill="#26215C" font-weight="600">frame_id</text>     <text x="1172" y="325"  text-anchor="end" fill="#5F5E5A" font-size="11">PK · serial</text>
+    <text x="982" y="343"  fill="#185FA5" font-weight="500">video_id</text>     <text x="1172" y="343"  text-anchor="end" fill="#5F5E5A" font-size="11">FK · int</text>
+    <text x="982" y="361"  fill="#3d3d3a">frame_number</text>                   <text x="1172" y="361"  text-anchor="end" fill="#5F5E5A" font-size="11">int</text>
+    <text x="982" y="379"  fill="#3d3d3a">timestamp_s</text>                    <text x="1172" y="379"  text-anchor="end" fill="#5F5E5A" font-size="11">numeric</text>
+    <text x="982" y="426" fill="#5F5E5A" font-size="10" font-style="italic">Unique (video_id, frame_number)</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- fact_tracklet  (center) -->
+  <!-- ============================================================ -->
+  <g id="fact_tracklet">
+    <rect x="390" y="290" width="260" height="310" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="2"/>
+    <rect x="390" y="290" width="260" height="28" rx="8" fill="#534AB7"/>
+    <rect x="390" y="306" width="260" height="12" fill="#534AB7"/>
+    <text x="520" y="309" text-anchor="middle" font-weight="700" font-size="13" fill="#ffffff">fact_tracklet</text>
+    <text x="402" y="335"  fill="#26215C" font-weight="600">tracklet_id</text>          <text x="642" y="335"  text-anchor="end" fill="#5F5E5A" font-size="11">PK · bigserial</text>
+    <text x="402" y="353"  fill="#185FA5" font-weight="500">track_id</text>             <text x="642" y="353"  text-anchor="end" fill="#5F5E5A" font-size="11">FK · int</text>
+    <text x="402" y="371"  fill="#185FA5" font-weight="500">camera_id</text>            <text x="642" y="371"  text-anchor="end" fill="#5F5E5A" font-size="11">FK · int</text>
+    <text x="402" y="389"  fill="#185FA5" font-weight="500">video_id</text>             <text x="642" y="389"  text-anchor="end" fill="#5F5E5A" font-size="11">FK · int</text>
+    <text x="402" y="407"  fill="#185FA5" font-weight="500">class_id</text>             <text x="642" y="407"  text-anchor="end" fill="#5F5E5A" font-size="11">FK · int</text>
+    <text x="402" y="425"  fill="#185FA5" font-weight="500">start_time_id</text>        <text x="642" y="425"  text-anchor="end" fill="#5F5E5A" font-size="11">FK · int</text>
+    <text x="402" y="443"  fill="#185FA5" font-weight="500">end_time_id</text>          <text x="642" y="443"  text-anchor="end" fill="#5F5E5A" font-size="11">FK · int</text>
+    <text x="402" y="461"  fill="#3d3d3a">source_track_id</text>                       <text x="642" y="461"  text-anchor="end" fill="#5F5E5A" font-size="11">int</text>
+    <text x="402" y="479"  fill="#3d3d3a">confidence_state</text>                      <text x="642" y="479"  text-anchor="end" fill="#5F5E5A" font-size="11">varchar</text>
+    <text x="402" y="497"  fill="#3d3d3a">detection_count</text>                       <text x="642" y="497"  text-anchor="end" fill="#5F5E5A" font-size="11">int</text>
+    <text x="402" y="515"  fill="#993C1D" font-weight="500">avg_speed_px_per_s</text>  <text x="642" y="515"  text-anchor="end" fill="#5F5E5A" font-size="11">numeric</text>
+    <text x="402" y="533"  fill="#3d3d3a">embedding</text>                             <text x="642" y="533"  text-anchor="end" fill="#5F5E5A" font-size="11">float[]</text>
+    <text x="402" y="584" fill="#5F5E5A" font-size="10" font-style="italic">One row per tracked segment</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- fact_detection  (bottom-center) -->
+  <!-- ============================================================ -->
+  <g id="fact_detection">
+    <rect x="370" y="680" width="280" height="292" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="2"/>
+    <rect x="370" y="680" width="280" height="28" rx="8" fill="#534AB7"/>
+    <rect x="370" y="696" width="280" height="12" fill="#534AB7"/>
+    <text x="510" y="699" text-anchor="middle" font-weight="700" font-size="13" fill="#ffffff">fact_detection</text>
+    <text x="382" y="725"  fill="#26215C" font-weight="600">detection_id</text>         <text x="642" y="725"  text-anchor="end" fill="#5F5E5A" font-size="11">PK · bigserial</text>
+    <text x="382" y="743"  fill="#185FA5" font-weight="500">tracklet_id</text>          <text x="642" y="743"  text-anchor="end" fill="#5F5E5A" font-size="11">FK · bigint</text>
+    <text x="382" y="761"  fill="#185FA5" font-weight="500">frame_id</text>             <text x="642" y="761"  text-anchor="end" fill="#5F5E5A" font-size="11">FK · int</text>
+    <text x="382" y="779"  fill="#3d3d3a">timestamp_s</text>                           <text x="642" y="779"  text-anchor="end" fill="#5F5E5A" font-size="11">numeric</text>
+    <text x="382" y="797"  fill="#3d3d3a">x1, y1, x2, y2</text>                       <text x="642" y="797"  text-anchor="end" fill="#5F5E5A" font-size="11">numeric ×4</text>
+    <text x="382" y="815"  fill="#3d3d3a">width, height</text>                         <text x="642" y="815"  text-anchor="end" fill="#5F5E5A" font-size="11">numeric ×2</text>
+    <text x="382" y="833"  fill="#3d3d3a">cx, cy</text>                                <text x="642" y="833"  text-anchor="end" fill="#5F5E5A" font-size="11">numeric ×2</text>
+    <text x="382" y="851"  fill="#993C1D" font-weight="500">speed_px_per_s</text>      <text x="642" y="851"  text-anchor="end" fill="#5F5E5A" font-size="11">numeric</text>
+    <text x="382" y="950" fill="#5F5E5A" font-size="10" font-style="italic">One row per bounding box detection</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- RELATIONSHIPS -->
+  <!-- ============================================================ -->
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- dim_camera → dim_video -->
+  <line x1="690" y1="90" x2="750" y2="90" stroke="#888780" stroke-width="1" marker-end="url(#arr)"/>
+  <text x="718" y="84" text-anchor="middle" font-size="10" fill="#888780">has segments</text>
+
+  <!-- dim_camera → dim_track -->
+  <line x1="490" y1="120" x2="350" y2="120" stroke="#888780" stroke-width="1"/>
+  <line x1="350" y1="120" x2="350" y2="519" stroke="#888780" stroke-width="1"/>
+  <line x1="350" y1="519" x2="240" y2="519" stroke="#888780" stroke-width="1" marker-end="url(#arr)"/>
+  <text x="316" y="115" text-anchor="middle" font-size="10" fill="#888780">owns</text>
+
+  <!-- dim_camera → fact_tracklet (camera_id FK) -->
+  <line x1="590" y1="180" x2="590" y2="220" stroke="#888780" stroke-width="1"/>
+  <line x1="590" y1="220" x2="520" y2="220" stroke="#888780" stroke-width="1"/>
+  <line x1="520" y1="220" x2="520" y2="290" stroke="#888780" stroke-width="1" marker-end="url(#arr)"/>
+  <text x="553" y="215" text-anchor="middle" font-size="10" fill="#888780">recorded on</text>
+
+  <!-- dim_video → dim_frame -->
+  <line x1="950" y1="110" x2="970" y2="110" stroke="#888780" stroke-width="1"/>
+  <line x1="970" y1="110" x2="970" y2="310" stroke="#888780" stroke-width="1" marker-end="url(#arr)"/>
+  <text x="958" y="220" font-size="10" fill="#888780" transform="rotate(-90,958,220)">contains frames</text>
+
+  <!-- dim_video → fact_tracklet -->
+  <line x1="750" y1="150" x2="700" y2="150" stroke="#888780" stroke-width="1"/>
+  <line x1="700" y1="150" x2="700" y2="389" stroke="#888780" stroke-width="1"/>
+  <line x1="700" y1="389" x2="650" y2="389" stroke="#888780" stroke-width="1" marker-end="url(#arr)"/>
+  <text x="724" y="268" font-size="10" fill="#888780" transform="rotate(-90,724,268)">source video</text>
+
+  <!-- dim_class → fact_tracklet -->
+  <line x1="220" y1="315" x2="310" y2="315" stroke="#888780" stroke-width="1"/>
+  <line x1="310" y1="315" x2="310" y2="407" stroke="#888780" stroke-width="1"/>
+  <line x1="310" y1="407" x2="390" y2="407" stroke="#888780" stroke-width="1" marker-end="url(#arr)"/>
+  <text x="263" y="310" text-anchor="middle" font-size="10" fill="#888780">labels</text>
+
+  <!-- dim_time → fact_tracklet start -->
+  <line x1="970" y1="60" x2="900" y2="60" stroke="#888780" stroke-width="1"/>
+  <line x1="900" y1="60" x2="900" y2="425" stroke="#888780" stroke-width="1"/>
+  <line x1="900" y1="425" x2="650" y2="425" stroke="#888780" stroke-width="1" marker-end="url(#arr)"/>
+  <text x="810" y="55" text-anchor="middle" font-size="10" fill="#888780">start_time_id</text>
+
+  <!-- dim_time → fact_tracklet end -->
+  <line x1="970" y1="80" x2="920" y2="80" stroke="#888780" stroke-width="1"/>
+  <line x1="920" y1="80" x2="920" y2="443" stroke="#888780" stroke-width="1"/>
+  <line x1="920" y1="443" x2="650" y2="443" stroke="#888780" stroke-width="1" marker-end="url(#arr)"/>
+  <text x="800" y="440" text-anchor="middle" font-size="10" fill="#888780">end_time_id</text>
+
+  <!-- dim_track → fact_tracklet -->
+  <line x1="240" y1="480" x2="370" y2="480" stroke="#888780" stroke-width="1"/>
+  <line x1="370" y1="480" x2="390" y2="353" stroke="#888780" stroke-width="1" marker-end="url(#arr)"/>
+  <text x="295" y="470" text-anchor="middle" font-size="10" fill="#888780">groups</text>
+
+  <!-- fact_tracklet → fact_detection -->
+  <line x1="510" y1="600" x2="510" y2="680" stroke="#534AB7" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="530" y="642" font-size="10" fill="#534AB7">contains</text>
+
+  <!-- dim_frame → fact_detection -->
+  <line x1="970" y1="430" x2="940" y2="430" stroke="#888780" stroke-width="1"/>
+  <line x1="940" y1="430" x2="940" y2="760" stroke="#888780" stroke-width="1"/>
+  <line x1="940" y1="760" x2="650" y2="760" stroke="#888780" stroke-width="1" marker-end="url(#arr)"/>
+  <text x="960" y="600" font-size="10" fill="#888780" transform="rotate(-90,960,600)">captured in</text>
+
+  <!-- Speed annotation box -->
+  <rect x="20" y="780" width="320" height="80" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+  <text x="32" y="800" font-size="11" font-weight="600" fill="#993C1D">Speed fields (new)</text>
+  <text x="32" y="820" font-size="11" fill="#3d3d3a">fact_detection.speed_px_per_s</text>
+  <text x="32" y="836" font-size="10" fill="#5F5E5A">  Instantaneous: √(Δcx²+Δcy²)/Δt</text>
+  <text x="32" y="852" font-size="11" fill="#3d3d3a">fact_tracklet / dim_track .avg_speed_px_per_s</text>
+</svg>
