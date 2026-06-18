@@ -7,7 +7,7 @@ CSV columns expected:
     x1, y1, x2, y2, width, height, cx, cy
 
 Usage:
-    python ingest_tracks.py tracks.csv \
+    python ingest.py tracks.csv \
         --camera "cam_01" \
         --segment 1 \
         [--host localhost] [--port 5432] [--dbname tracking] [--user sipg] [--password sipg] \
