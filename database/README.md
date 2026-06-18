@@ -165,3 +165,11 @@ Data survives container restarts. To permanently delete it:
 docker rm -f tracking-db
 docker volume rm postgres-data
 ```
+
+
+CSV columns expected:
+    frame_id, timestamp_s, track_id, class_id, class_name, state,
+    x1, y1, x2, y2, width, height, cx, cy
+
+Use ingest.py to add things to database
+
