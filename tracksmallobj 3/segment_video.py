@@ -36,12 +36,6 @@ from pathlib import Path
 import cv2
 from ultralytics import YOLO
 
-# COCO class name -> the name we want to use in our output labels.
-# Ultralytics' pretrained COCO weights call it "motorcycle"; this project's
-# convention (see ingest_tracks.py normalization map) uses "motorbike".
-CLASS_RENAME = {
-    "motorcycle": "motorbike",
-}
 
 DEFAULT_CLASSES = ["person", "car", "truck", "motorcycle"]
 

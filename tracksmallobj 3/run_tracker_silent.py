@@ -48,12 +48,19 @@ CLASS_COLORS = {
     7: ( 60, 220, 220),
 }
 
+# Populated from tracker.class_names once the model is loaded (see main()).
+# class_id2 can land on any of the model's classes, not just the 5 tracked
+# ones, so we need the full name table to label it — not just CLASS_NAMES.
+FULL_CLASS_NAMES: dict = {}
+
 
 def class2_name(class_id2: int) -> str:
     """Name for the second-most-likely class, or 'n/a' if not available."""
     if class_id2 is None or class_id2 < 0:
         return "n/a"
-    return CLASS_NAMES.get(class_id2, "unknown")
+    if class_id2 in CLASS_NAMES:
+        return CLASS_NAMES[class_id2]
+    return FULL_CLASS_NAMES.get(class_id2, f"class_{class_id2}")
 
 # ─────────────────────────────────────────────
 # CSV Result Writer
@@ -201,7 +208,22 @@ def main():
     ap.add_argument("--conf",       type=float, default=0.25,
                     help="Detection confidence threshold (default: 0.25)")
     ap.add_argument("--max-age",    type=int, default=30,
-                    help="Frames to keep a lost track alive (default: 30)")
+                    help="Frames to keep a lost track alive before giving up on it "
+                         "and assigning a new ID on re-appearance. Bigger = bridges "
+                         "longer occlusions but risks matching the wrong object if "
+                         "the scene is crowded (default: 30)")
+    ap.add_argument("--appearance-weight", type=float, default=0.80,
+                    help="Re-ID (visual similarity) weight in the matching cost, "
+                         "0-1; the rest goes to position. Lower this if small/blurry "
+                         "crops are giving noisy Re-ID embeddings and causing ID "
+                         "switches; raise it if objects cross paths/overlap a lot "
+                         "and position alone confuses the tracker (default: 0.80)")
+    ap.add_argument("--max-cost",   type=float, default=0.92,
+                    help="Matching cost threshold above which a track/detection pair "
+                         "is rejected (new track spawned instead). Lower = stricter "
+                         "matching (fewer wrong-object switches, more fragmentation); "
+                         "higher = looser (less fragmentation, more risk of matching "
+                         "the wrong object) (default: 0.92)")
     ap.add_argument("--no-sahi",    action="store_true",
                     help="Disable SAHI tiling (faster but lower small-object recall)")
     ap.add_argument("--slice-size", type=int, default=640,
@@ -237,10 +259,13 @@ def main():
         yolo_model=args.model,
         det_conf_thresh=args.conf,
         max_age=args.max_age,
+        appearance_weight=args.appearance_weight,
+        max_cost=args.max_cost,
         use_sahi=not args.no_sahi,
         sahi_slice_size=args.slice_size,
     )
     tracker = LowFPSTracker(cfg)
+    FULL_CLASS_NAMES.update(tracker.class_names)   # e.g. all 80 COCO class names
 
     # ── Open source ────────────────────────────────────────────────────────────
     source = int(args.source) if args.source.isdigit() else args.source
